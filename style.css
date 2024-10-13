@@ -121,14 +121,6 @@ body.dark {
     color: rgb(231, 167, 83);
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    #switch {
-        display: none;
-    }
-}
-
-
 
 body,
 html {
