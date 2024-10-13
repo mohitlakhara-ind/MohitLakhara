@@ -95,7 +95,15 @@ body.dark {
     transform: scale(1.5);
     transition: width 0.2s ease, height 0.2s ease, transform 0.2s ease;
 }
-
+.arrow-keys-hint{
+    background-color: #f0f0ff25;
+}
+@media screen and (max-width: 768px) {
+    .arrow-keys-hint{
+        background-color: #f0f0ff25;
+        display: none;
+    }
+}
 .label .ball {
     background-color: #fff;
     border-radius: 50%;
