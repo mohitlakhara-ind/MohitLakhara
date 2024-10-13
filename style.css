@@ -265,7 +265,7 @@ header {
 .hero-section h1 {
     font-size: 60px;
     margin: 0;
-    font-size: 100px;
+    font-size: 7vw;
     animation: fadeIn 2s ease-in-out 1s;
 }
 
