@@ -594,7 +594,7 @@ header {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
-    border-bottom: 2px solid --primary-color;
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 10px;
     position: relative;
 }
@@ -678,7 +678,7 @@ header {
 .other-skills-section {
     padding: 80px 20px;
     background: var(--secondary-background-color);
-    color: var(--secondary-background-color);
+    color: var(--warning-color);
 }
 
 .skills-grid {
