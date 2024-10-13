@@ -1,42 +1,46 @@
 /* Custom Styles */
-:root{--p-font: "Merriweather", serif;
+:root {
+    --p-font: "Merriweather", serif;
     --p-fontWeight: 400;
     --h-font: "Playwrite DE Grund", cursive;
     --h-optical-sizing: auto;
-    --h-font-weight: 400;}
-   /* Light Mode */
-   .light-mode {
-    --primary-color: #4CAF50;
-    --secondary-color: #2C3E50;
-    --tertiary-color: #8E44AD;
-    --background-color: #EAECEE;
-    --secondary-background-color: #D5DBDB;
-    --highlight-color: #E74C3C;
-    --highlight-hover-color: #C0392B;
-    --link-color: #2980B9;
-    --link-hover-color: #3498DB;
-    --border-color: #BDC3C7;
-    --error-color: #E74C3C;
-    --warning-color: #F39C12;
-    --success-color: #27AE60;
+    --h-font-weight: 400;
 }
 
-/* Dark Mode */
-.dark-mode {
-    --primary-color: #1ABC9C;
-    --secondary-color: #ECF0F1;
-    --tertiary-color: #9B59B6;
-    --background-color: #1A1A1A;
-    --secondary-background-color: #333333;
-    --highlight-color: #F39C12;
-    --highlight-hover-color: #E67E22;
-    --link-color: #3498DB;
-    --link-hover-color: #2980B9;
-    --border-color: #666666;
-    --error-color: #E74C3C;
-    --warning-color: #F39C12;
-    --success-color: #2ECC71;
+/* High-Contrast Light Mode */
+.light-mode {
+    --primary-color: #FF4500; /* OrangeRed */
+    --secondary-color: #1C1C1C; /* Very Dark Gray */
+    --tertiary-color: #000080; /* Navy Blue */
+    --background-color: #FFFFFF; /* Pure White */
+    --secondary-background-color: #F5F5F5; /* Very Light Gray */
+    --highlight-color: #008000; /* Green */
+    --highlight-hover-color: #006400; /* Dark Green */
+    --link-color: #0000FF; /* Blue */
+    --link-hover-color: #00008B; /* Dark Blue */
+    --border-color: #000000; /* Black */
+    --error-color: #FF0000; /* Bright Red */
+    --warning-color: #FFD700; /* Bright Yellow */
+    --success-color: #32CD32; /* Bright Green */
 }
+
+/* High-Contrast Dark Mode */
+.dark-mode {
+    --primary-color: #00FF00; /* Lime Green */
+    --secondary-color: #FFFFFF; /* White */
+    --tertiary-color: #FF00FF; /* Magenta */
+    --background-color: #000000; /* Pure Black */
+    --secondary-background-color: #1A1A1A; /* Dark Gray */
+    --highlight-color: #FFA500; /* Bright Orange */
+    --highlight-hover-color: #FF8C00; /* Dark Orange */
+    --link-color: #00FFFF; /* Cyan */
+    --link-hover-color: #00CED1; /* Dark Turquoise */
+    --border-color: #FFFFFF; /* White */
+    --error-color: #FF0000; /* Bright Red */
+    --warning-color: #FFD700; /* Bright Yellow */
+    --success-color: #32CD32; /* Bright Green */
+}
+
 .btn {
     background-color: transparent;
     border: 2px solid var(--highlight-color);
@@ -99,7 +103,7 @@ header {
 }
 
 .nav-bg {
-    background-color: var(--tertiary-color);
+    background-color: var(--warning-color);
     scroll-behavior: smooth;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
@@ -120,14 +124,15 @@ header {
 }
 
 .nav-link {
-    color: var(--nav-link);
+    color: var(--link-color);
+    font-weight: 700;
     transition: color 0.3s ease-in-out;
 
 }
 
 .nav-link:hover {
-    color: var(--nav-bg);
-    background-color: var(--nav-link);
+    color: var(--secondary-background-color);
+    background-color: var(--link-color);
 }
 
 .navbar-toggler {
@@ -222,6 +227,9 @@ header {
     font-size: 2rem; /* Adjusted icon size */
     animation: float 8s infinite ease-in-out, roam 20s infinite linear, colorChange 5s infinite alternate;
     z-index: -10;
+}
+.link{
+    color: var(--background-color);
 }
 
 /* Keyframes for animations */
@@ -611,4 +619,505 @@ h3 {
 
 .none.active {
     display: block;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 60px 0;
+    background-color: var(--secondary-background-color); /* Slightly lighter dark background */
+}
+
+.projects-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-color); /* Bright blue for the section title */
+}
+
+/* Fade-in and Slide-up Animation */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px); /* Slide from below */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Smooth floating effect */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Hover bounce effect */
+@keyframes bounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* Slightly scale up */
+    }
+}
+
+.project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.project-item {
+    width: 270px;
+    text-align: center;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px var(--border-color);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeInUp 0.6s ease forwards, float 5s ease-in-out infinite;
+    position: relative; /* Ensure no position issues on hover */
+    z-index: 0; /* Default z-index to prevent hiding */
+    opacity: 0; /* Hidden at start */
+}
+
+/* Adding delay to each item for staggered effect */
+.project-item:nth-child(1) { animation-delay: 0.2s; }
+.project-item:nth-child(2) { animation-delay: 0.3s; }
+.project-item:nth-child(3) { animation-delay: 0.4s; }
+
+/* Fixes for hover effects to prevent element hiding */
+.project-item:hover {
+    transform: translateY(-10px) scale(1.05); /* Scale up instead of rotate to prevent layout issues */
+    box-shadow: 0 10px 20px var(--highlight-hover-color); /* Increased shadow for better depth */
+    z-index: 1; /* Ensure the item stays on top while hovering */
+}
+
+/* Icon animation with hover */
+.project-icon {
+    font-size: 3rem;
+    color: var(--link-color); /* Sky blue for icons */
+    margin-bottom: 15px;
+    transition: color 0.3s, transform 0.4s ease;
+}
+
+
+
+.project-item h3 {
+    margin: 15px 0;
+    font-size: 1.6rem;
+    color: var(--link-color); /* Light blue for project title */
+}
+.project-item:hover .project-icon , .project-item h3{
+    color: var(--link-hover-color); /* Change to yellow on hover */
+    transform: scale(1.2); /* Scale on hover instead of rotation */
+    
+}
+.project-item p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+}
+
+.project-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+    padding: 12px 25px;
+    border: 2px solid var(--link-hover-color);
+    border-radius: 8px;
+    transition: all 0.3s ease, text-shadow 0.4s;
+}
+
+.project-link:hover {
+    color: var(--link-hover-color);
+    background-color: var(--link-color);
+    border-color: var(--border-color);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Programming Languages List */
+.languages-used {
+    margin-top: 20px;
+}
+
+.languages-used h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.languages-used ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.languages-used li {
+    font-size: 16px;
+    color: var(--error-color);
+}
+
+
+
+/* Certifications Section */
+.certifications-section {
+    padding: 60px 0;
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-color);
+}
+
+.certifications-section .section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.certifications-section .section-header i {
+    font-size: 2rem;
+    color: var(--primary-color); /* Changed to blue */
+    margin-right: 10px;
+    animation: pulse 1.5s infinite;
+}
+
+.certifications-section .section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    align-items: center;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* Animation for the header icon */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.certification-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.certification-item {
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, border 0.3s;
+    position: relative; /* For pseudo-element positioning */
+    overflow: hidden; /* Hide overflow for the pseudo-element */
+    border: 2px solid transparent; /* Initial border for animation */
+}
+
+.certification-item:hover {
+    transform: translateY(-10px);
+    background-color: var(--background-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 255, 0.5); /* Blue shadow effect */
+    border-color: var(--border-color); /* Highlight border on hover */
+}
+
+/* Add a glowing effect on hover */
+.certification-item:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--secondary-background-color); /* Glowing blue background */
+    border-radius: 10px;
+    z-index: -1; /* Behind the item */
+    animation: glow 1s infinite alternate; /* Glow animation */
+}
+
+@keyframes glow {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.05); opacity: 1; }
+}
+
+.certification-info {
+    margin-bottom: 15px;
+}
+
+.certification-info i {
+    font-size: 2rem;
+    color: var(--link-color); /* Changed to blue */
+}
+
+.certification-info h3 {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    color: var(--link-color); /* Light blue */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Enhanced shadow for readability */
+    transition: color 0.3s;
+}
+
+.certification-info h3:hover {
+    color: var(--link-hover-color); /* Change to blue on hover for emphasis */
+}
+
+.certification-info p {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    transition: color 0.3s;
+}
+
+.certification-info p:hover {
+    color: var(--error-color); /* Highlight description text on hover */
+}
+
+.certification-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--link-hover-color); /* Changed to blue */
+    font-weight: bold;
+    border: 2px solid var(--link-color); /* Blue border */
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Added transform transition */
+}
+
+.certification-link:hover {
+    background-color: var(--secondary-background-color); /* Blue background on hover */
+    color: var(--secondary-color); /* Dark text on hover */
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 255, 0.4); /* Shadow on link hover */
+}
+
+.tag {
+    display: inline-block;
+    background-color:var(--highlight-color);
+    color: var(--background-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for tags */
+}
+
+.tag:hover {
+    background-color: var(--error-color); /* Highlight tag on hover */
+    color: var(--background-color); /* Change text color on hover */
+    transform: scale(1.05); /* Slightly enlarge tag on hover */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .certification-item {
+        width: 90%; /* Adjust width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .certifications-section .section-header h2 {
+        font-size: 2rem; /* Reduce header size on mobile */
+    }
+
+    .certification-info h3 {
+        font-size: 1.2rem; /* Reduce certification title size on mobile */
+    }
+}
+
+
+/* Contact Section */ 
+.contact-section {
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    padding: 30px 0; /* Reduced padding */
+    text-align: center;
+    height: 75vh;
+    
+}
+
+.contact-section h2 {
+    font-size: 28px; /* Reduced font size */
+    margin-bottom: 15px; /* Reduced margin */
+    color: var(--primary-color); /* Changed to blue */
+    text-transform: uppercase;
+    letter-spacing: 1px; /* Reduced letter spacing */
+}
+
+.contact-section p {
+    font-size: 16px; /* Slightly smaller font size */
+    margin-bottom: 30px; /* Reduced margin */
+    color: var(--secondary-color);
+}
+
+.contact-form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Reduced margin */
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px; /* Reduced padding */
+    border: none;
+    border-radius: 5px;
+    background-color: var(--secondary-background-color);
+    color: var(--link-color);
+    font-size: 14px; /* Slightly smaller font size */
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--highlight-color-color);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border: 2px solid var(--link-hover-color); /* Changed to blue */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px; /* Reduced minimum height */
+}
+
+.btn-primary {
+    background-color: var(--link-hover-color); /* Changed to blue */
+    color: var(--background-color);
+    border: none;
+    padding: 10px 20px; /* Reduced padding */
+    font-size: 16px; /* Slightly smaller font size */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--link-color); /* Darker blue on hover */
+}
+
+/* Improved Social Links Arrangement */
+.social-links {
+    margin-top: 30px; /* Reduced margin */
+}
+
+.social-links h3 {
+    font-size: 20px; /* Reduced font size */
+    margin-bottom: 15px; /* Reduced margin */
+    color: var(--link-color); /* Changed to blue */
+}
+
+.social-links a {
+    color: var(--link-color);
+    margin: 0 10px; /* Uniform margin for spacing */
+    font-size: 24px; /* Slightly smaller font size */
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--link-hover-color); /* Changed to blue */
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: var(--background-color);
+    /* Dark background */
+    color: var(--link-color);
+    /* White text color for contrast */
+    padding: 40px 0;
+}
+
+.footer-logo h2 a {
+    color: var(--highlight-color);
+    /* Neon green color for logo */
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+
+
+.footer-logo h2 a:hover {
+    color: var(--highlight-hover-color)
+    /* Neon pink on hover */
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-links ul li {
+    margin: 0 15px;
+}
+
+.footer-links ul li a {
+    color: var(--warning-color);
+    /* Neon link color */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--link-color);
+    /* Neon pink on hover */
+}
+
+.footer-social a {
+    color: var(--link-color);
+    /* Neon green social icons */
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--link-hover-color);
+    /* Neon pink on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+    color: var(--highlight-hover-color);
+    /* Light grey for footer text */
+    font-size: 0.9rem;
+}
+
+.footer-bottom p:hover {
+    color: var(--highlight-color);
+    /* Neon pink on hover */
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-links ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-social {
+        margin-top: 20px;
+    }
 }
