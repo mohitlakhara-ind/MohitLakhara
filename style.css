@@ -205,7 +205,7 @@ header {
 
 
 .nav-bg {
-    background-color: var(--warning-color);
+    background-color: var(--highlight-hover-color);
     scroll-behavior: smooth;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
