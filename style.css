@@ -9,50 +9,123 @@
 
 /* High-Contrast Light Mode */
 .light-mode {
-    --primary-color: #FF4500; /* OrangeRed */
-    --secondary-color: #1C1C1C; /* Very Dark Gray */
-    --tertiary-color: #000080; /* Navy Blue */
-    --background-color: #FFFFFF; /* Pure White */
-    --secondary-background-color: #F5F5F5; /* Very Light Gray */
-    --highlight-color: #008000; /* Green */
-    --highlight-hover-color: #006400; /* Dark Green */
-    --link-color: #0000FF; /* Blue */
-    --link-hover-color: #00008B; /* Dark Blue */
-    --border-color: #000000; /* Black */
-    --error-color: #FF0000; /* Bright Red */
-    --warning-color: #FFD700; /* Bright Yellow */
-    --success-color: #32CD32; /* Bright Green */
+    --primary-color: #FF4500;
+    /* OrangeRed */
+    --secondary-color: #1C1C1C;
+    /* Very Dark Gray */
+    --tertiary-color: #000080;
+    /* Navy Blue */
+    --background-color: #FFFFFF;
+    /* Pure White */
+    --secondary-background-color: #F5F5F5;
+    /* Very Light Gray */
+    --highlight-color: #008000;
+    /* Green */
+    --highlight-hover-color: #006400;
+    /* Dark Green */
+    --link-color: #0000FF;
+    /* Blue */
+    --link-hover-color: #00008B;
+    /* Dark Blue */
+    --border-color: #000000;
+    /* Black */
+    --error-color: #FF0000;
+    /* Bright Red */
+    --warning-color: #FFD700;
+    /* Bright Yellow */
+    --success-color: #32CD32;
+    /* Bright Green */
 }
 
 /* High-Contrast Dark Mode */
-.dark-mode {
-    --primary-color: #00FF00; /* Lime Green */
-    --secondary-color: #FFFFFF; /* White */
-    --tertiary-color: #FF00FF; /* Magenta */
-    --background-color: #000000; /* Pure Black */
-    --secondary-background-color: #1A1A1A; /* Dark Gray */
-    --highlight-color: #FFA500; /* Bright Orange */
-    --highlight-hover-color: #FF8C00; /* Dark Orange */
-    --link-color: #00FFFF; /* Cyan */
-    --link-hover-color: #00CED1; /* Dark Turquoise */
-    --border-color: #FFFFFF; /* White */
-    --error-color: #FF0000; /* Bright Red */
-    --warning-color: #FFD700; /* Bright Yellow */
-    --success-color: #32CD32; /* Bright Green */
+body.dark {
+    --primary-color: #00FF00;
+    /* Lime Green */
+    --secondary-color: #FFFFFF;
+    /* White */
+    --tertiary-color: #FF00FF;
+    /* Magenta */
+    --background-color: #000000;
+    /* Pure Black */
+    --secondary-background-color: #1A1A1A;
+    /* Dark Gray */
+    --highlight-color: #FFA500;
+    /* Bright Orange */
+    --highlight-hover-color: #FF8C00;
+    /* Dark Orange */
+    --link-color: #00FFFF;
+    /* Cyan */
+    --link-hover-color: #00CED1;
+    /* Dark Turquoise */
+    --border-color: #FFFFFF;
+    /* White */
+    --error-color: #FF0000;
+    /* Bright Red */
+    --warning-color: #FFD700;
+    /* Bright Yellow */
+    --success-color: #32CD32;
+    /* Bright Green */
 }
 
-.btn {
-    background-color: transparent;
-    border: 2px solid var(--highlight-color);
-    color: var(--text-color);
-    padding: 5px 10px;
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.label {
+    background-color: #111;
+    border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    height: 26px;
+    width: 50px;
+    transform: scale(1.5);
+    transition: width 0.2s ease, height 0.2s ease, transform 0.2s ease;
 }
 
-.btn:hover {
-    background-color: var(--highlight-color);
-    color: var(--background-color);
+.label .ball {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear, height 0.2s ease, width 0.2s ease;
+}
+
+.checkbox:checked+.label .ball {
+    transform: translateX(24px);
+}
+
+/* Moon and Sun icons */
+.fa-moon {
+    color: #f7eccaf6;
+}
+
+.fa-sun {
+    color: rgb(231, 167, 83);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #switch {
+        display: none;
+    }
 }
 
 
@@ -73,6 +146,7 @@ hr {
     border-radius: 10%;
     border: 3px var(--highlight-hover-color);
 }
+
 h1,
 h2,
 h3,
@@ -102,6 +176,34 @@ header {
 
 }
 
+.nav.active {
+    color: var(--highlight-hover-color);
+    font-weight: 600;
+    background-color: var(--secondary-background-color);
+    border-bottom: var(--link-hover-color);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.navbar-nav {
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--link-color);
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+
 .nav-bg {
     background-color: var(--warning-color);
     scroll-behavior: smooth;
@@ -112,16 +214,6 @@ header {
 
 }
 
-.form-control {
-    width: 300px;
-}
-
-@media (max-width: 768px) {
-    .form-control {
-        width: 100%;
-        margin-top: 10px;
-    }
-}
 
 .nav-link {
     color: var(--link-color);
@@ -151,7 +243,7 @@ header {
 }
 
 .hero-section {
-    
+
     color: var(--primary-color);
     text-align: center;
     padding-top: 100px;
@@ -218,17 +310,21 @@ header {
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; /* Allows clicks to pass through icons */
-    z-index: -10; /* Ensures icons are below the text content but above the background */
+    pointer-events: none;
+    /* Allows clicks to pass through icons */
+    z-index: -10;
+    /* Ensures icons are below the text content but above the background */
 }
 
 .icon {
     position: absolute;
-    font-size: 2rem; /* Adjusted icon size */
+    font-size: 2rem;
+    /* Adjusted icon size */
     animation: float 8s infinite ease-in-out, roam 20s infinite linear, colorChange 5s infinite alternate;
     z-index: -10;
 }
-.link{
+
+.link {
     color: var(--background-color);
 }
 
@@ -237,9 +333,12 @@ header {
     0% {
         transform: translateY(0px);
     }
+
     50% {
-        transform: translateY(-20px); /* Reduced floating height */
+        transform: translateY(-20px);
+        /* Reduced floating height */
     }
+
     100% {
         transform: translateY(0px);
     }
@@ -249,9 +348,12 @@ header {
     0% {
         transform: translateX(0px) translateY(0px);
     }
+
     50% {
-        transform: translateX(50px) translateY(50px); /* Reduced roaming distance */
+        transform: translateX(50px) translateY(50px);
+        /* Reduced roaming distance */
     }
+
     100% {
         transform: translateX(0px) translateY(0px);
     }
@@ -259,19 +361,28 @@ header {
 
 @keyframes colorChange {
     0% {
-        color: #00ffff; /* Neon cyan */
+        color: #00ffff;
+        /* Neon cyan */
     }
+
     25% {
-        color: #ff00ff; /* Neon magenta */
+        color: #ff00ff;
+        /* Neon magenta */
     }
+
     50% {
-        color: #ffff00; /* Neon yellow */
+        color: #ffff00;
+        /* Neon yellow */
     }
+
     75% {
-        color: #ff0000; /* Neon red */
+        color: #ff0000;
+        /* Neon red */
     }
+
     100% {
-        color: #00ff00; /* Neon green */
+        color: #00ff00;
+        /* Neon green */
     }
 }
 
@@ -404,6 +515,7 @@ header {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -624,47 +736,33 @@ h3 {
 /* Projects Section */
 .projects-section {
     padding: 60px 0;
-    background-color: var(--secondary-background-color); /* Slightly lighter dark background */
+    background-color: var(--secondary-background-color);
+    /* Slightly lighter dark background */
 }
 
 .projects-section h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: var(--primary-color); /* Bright blue for the section title */
+    color: var(--primary-color);
+    /* Bright blue for the section title */
 }
 
 /* Fade-in and Slide-up Animation */
 @keyframes fadeInUp {
     0% {
         opacity: 0;
-        transform: translateY(40px); /* Slide from below */
+        transform: translateY(40px);
+        /* Slide from below */
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* Smooth floating effect */
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
-}
 
-/* Hover bounce effect */
-@keyframes bounce {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05); /* Slightly scale up */
-    }
-}
 
 .project-grid {
     display: flex;
@@ -682,27 +780,42 @@ h3 {
     box-shadow: 0 4px 12px var(--border-color);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     animation: fadeInUp 0.6s ease forwards, float 5s ease-in-out infinite;
-    position: relative; /* Ensure no position issues on hover */
-    z-index: 0; /* Default z-index to prevent hiding */
-    opacity: 0; /* Hidden at start */
+    position: relative;
+    /* Ensure no position issues on hover */
+    z-index: 0;
+    /* Default z-index to prevent hiding */
+    opacity: 0;
+    /* Hidden at start */
 }
 
 /* Adding delay to each item for staggered effect */
-.project-item:nth-child(1) { animation-delay: 0.2s; }
-.project-item:nth-child(2) { animation-delay: 0.3s; }
-.project-item:nth-child(3) { animation-delay: 0.4s; }
+.project-item:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.project-item:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.project-item:nth-child(3) {
+    animation-delay: 0.4s;
+}
 
 /* Fixes for hover effects to prevent element hiding */
 .project-item:hover {
-    transform: translateY(-10px) scale(1.05); /* Scale up instead of rotate to prevent layout issues */
-    box-shadow: 0 10px 20px var(--highlight-hover-color); /* Increased shadow for better depth */
-    z-index: 1; /* Ensure the item stays on top while hovering */
+    transform: translateY(-10px) scale(1.05);
+    /* Scale up instead of rotate to prevent layout issues */
+    box-shadow: 0 10px 20px var(--highlight-hover-color);
+    /* Increased shadow for better depth */
+    z-index: 1;
+    /* Ensure the item stays on top while hovering */
 }
 
 /* Icon animation with hover */
 .project-icon {
     font-size: 3rem;
-    color: var(--link-color); /* Sky blue for icons */
+    color: var(--link-color);
+    /* Sky blue for icons */
     margin-bottom: 15px;
     transition: color 0.3s, transform 0.4s ease;
 }
@@ -712,13 +825,19 @@ h3 {
 .project-item h3 {
     margin: 15px 0;
     font-size: 1.6rem;
-    color: var(--link-color); /* Light blue for project title */
+    color: var(--link-color);
+    /* Light blue for project title */
 }
-.project-item:hover .project-icon , .project-item h3{
-    color: var(--link-hover-color); /* Change to yellow on hover */
-    transform: scale(1.2); /* Scale on hover instead of rotation */
-    
+
+.project-item:hover .project-icon,
+.project-item h3 {
+    color: var(--link-hover-color);
+    /* Change to yellow on hover */
+    transform: scale(1.2);
+    /* Scale on hover instead of rotation */
+
 }
+
 .project-item p {
     font-size: 1rem;
     color: var(--secondary-color);
@@ -780,7 +899,8 @@ h3 {
 
 .certifications-section .section-header i {
     font-size: 2rem;
-    color: var(--primary-color); /* Changed to blue */
+    color: var(--primary-color);
+    /* Changed to blue */
     margin-right: 10px;
     animation: pulse 1.5s infinite;
 }
@@ -794,9 +914,17 @@ h3 {
 
 /* Animation for the header icon */
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .certification-grid {
@@ -814,16 +942,21 @@ h3 {
     max-width: 400px;
     text-align: center;
     transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s, border 0.3s;
-    position: relative; /* For pseudo-element positioning */
-    overflow: hidden; /* Hide overflow for the pseudo-element */
-    border: 2px solid transparent; /* Initial border for animation */
+    position: relative;
+    /* For pseudo-element positioning */
+    overflow: hidden;
+    /* Hide overflow for the pseudo-element */
+    border: 2px solid transparent;
+    /* Initial border for animation */
 }
 
 .certification-item:hover {
     transform: translateY(-10px);
     background-color: var(--background-color);
-    box-shadow: 0 4px 20px rgba(0, 0, 255, 0.5); /* Blue shadow effect */
-    border-color: var(--border-color); /* Highlight border on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 255, 0.5);
+    /* Blue shadow effect */
+    border-color: var(--border-color);
+    /* Highlight border on hover */
 }
 
 /* Add a glowing effect on hover */
@@ -834,15 +967,25 @@ h3 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--secondary-background-color); /* Glowing blue background */
+    background: var(--secondary-background-color);
+    /* Glowing blue background */
     border-radius: 10px;
-    z-index: -1; /* Behind the item */
-    animation: glow 1s infinite alternate; /* Glow animation */
+    z-index: -1;
+    /* Behind the item */
+    animation: glow 1s infinite alternate;
+    /* Glow animation */
 }
 
 @keyframes glow {
-    0% { transform: scale(1); opacity: 0.5; }
-    100% { transform: scale(1.05); opacity: 1; }
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
 }
 
 .certification-info {
@@ -851,19 +994,23 @@ h3 {
 
 .certification-info i {
     font-size: 2rem;
-    color: var(--link-color); /* Changed to blue */
+    color: var(--link-color);
+    /* Changed to blue */
 }
 
 .certification-info h3 {
     margin: 10px 0;
     font-size: 1.5rem;
-    color: var(--link-color); /* Light blue */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Enhanced shadow for readability */
+    color: var(--link-color);
+    /* Light blue */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    /* Enhanced shadow for readability */
     transition: color 0.3s;
 }
 
 .certification-info h3:hover {
-    color: var(--link-hover-color); /* Change to blue on hover for emphasis */
+    color: var(--link-hover-color);
+    /* Change to blue on hover for emphasis */
 }
 
 .certification-info p {
@@ -873,83 +1020,105 @@ h3 {
 }
 
 .certification-info p:hover {
-    color: var(--error-color); /* Highlight description text on hover */
+    color: var(--error-color);
+    /* Highlight description text on hover */
 }
 
 .certification-link {
     display: inline-block;
     text-decoration: none;
-    color: var(--link-hover-color); /* Changed to blue */
+    color: var(--link-hover-color);
+    /* Changed to blue */
     font-weight: bold;
-    border: 2px solid var(--link-color); /* Blue border */
+    border: 2px solid var(--link-color);
+    /* Blue border */
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Added transform transition */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    /* Added transform transition */
 }
 
 .certification-link:hover {
-    background-color: var(--secondary-background-color); /* Blue background on hover */
-    color: var(--secondary-color); /* Dark text on hover */
-    transform: translateY(-3px); /* Slight lift on hover */
-    box-shadow: 0 4px 15px rgba(0, 0, 255, 0.4); /* Shadow on link hover */
+    background-color: var(--secondary-background-color);
+    /* Blue background on hover */
+    color: var(--secondary-color);
+    /* Dark text on hover */
+    transform: translateY(-3px);
+    /* Slight lift on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 255, 0.4);
+    /* Shadow on link hover */
 }
 
 .tag {
     display: inline-block;
-    background-color:var(--highlight-color);
+    background-color: var(--highlight-color);
     color: var(--background-color);
     border-radius: 5px;
     padding: 5px 10px;
     margin-right: 5px;
     font-size: 0.9em;
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for tags */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Smooth transition for tags */
 }
 
 .tag:hover {
-    background-color: var(--error-color); /* Highlight tag on hover */
-    color: var(--background-color); /* Change text color on hover */
-    transform: scale(1.05); /* Slightly enlarge tag on hover */
+    background-color: var(--error-color);
+    /* Highlight tag on hover */
+    color: var(--background-color);
+    /* Change text color on hover */
+    transform: scale(1.05);
+    /* Slightly enlarge tag on hover */
 }
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {
     .certification-item {
-        width: 90%; /* Adjust width on smaller screens */
+        width: 90%;
+        /* Adjust width on smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .certifications-section .section-header h2 {
-        font-size: 2rem; /* Reduce header size on mobile */
+        font-size: 2rem;
+        /* Reduce header size on mobile */
     }
 
     .certification-info h3 {
-        font-size: 1.2rem; /* Reduce certification title size on mobile */
+        font-size: 1.2rem;
+        /* Reduce certification title size on mobile */
     }
 }
 
 
-/* Contact Section */ 
+/* Contact Section */
 .contact-section {
     background-color: var(--background-color);
     color: var(--secondary-color);
-    padding: 30px 0; /* Reduced padding */
+    padding: 10vh 0;
+    /* Reduced padding */
     text-align: center;
     height: 75vh;
-    
+
 }
 
 .contact-section h2 {
-    font-size: 28px; /* Reduced font size */
-    margin-bottom: 15px; /* Reduced margin */
-    color: var(--primary-color); /* Changed to blue */
+    font-size: 28px;
+    /* Reduced font size */
+    margin-bottom: 15px;
+    /* Reduced margin */
+    color: var(--primary-color);
+    /* Changed to blue */
     text-transform: uppercase;
-    letter-spacing: 1px; /* Reduced letter spacing */
+    letter-spacing: 1px;
+    /* Reduced letter spacing */
 }
 
 .contact-section p {
-    font-size: 16px; /* Slightly smaller font size */
-    margin-bottom: 30px; /* Reduced margin */
+    font-size: 16px;
+    /* Slightly smaller font size */
+    margin-bottom: 30px;
+    /* Reduced margin */
     color: var(--secondary-color);
 }
 
@@ -959,18 +1128,21 @@ h3 {
 }
 
 .form-group {
-    margin-bottom: 15px; /* Reduced margin */
+    margin-bottom: 15px;
+    /* Reduced margin */
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 10px; /* Reduced padding */
+    padding: 10px;
+    /* Reduced padding */
     border: none;
     border-radius: 5px;
     background-color: var(--secondary-background-color);
     color: var(--link-color);
-    font-size: 14px; /* Slightly smaller font size */
+    font-size: 14px;
+    /* Slightly smaller font size */
 }
 
 .form-group input::placeholder,
@@ -981,49 +1153,62 @@ h3 {
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border: 2px solid var(--link-hover-color); /* Changed to blue */
+    border: 2px solid var(--link-hover-color);
+    /* Changed to blue */
 }
 
 textarea {
     resize: vertical;
-    min-height: 100px; /* Reduced minimum height */
+    min-height: 100px;
+    /* Reduced minimum height */
 }
 
 .btn-primary {
-    background-color: var(--link-hover-color); /* Changed to blue */
+    background-color: var(--link-hover-color);
+    /* Changed to blue */
     color: var(--background-color);
     border: none;
-    padding: 10px 20px; /* Reduced padding */
-    font-size: 16px; /* Slightly smaller font size */
+    padding: 10px 20px;
+    /* Reduced padding */
+    font-size: 16px;
+    /* Slightly smaller font size */
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: var(--link-color); /* Darker blue on hover */
+    background-color: var(--link-color);
+    /* Darker blue on hover */
 }
 
 /* Improved Social Links Arrangement */
 .social-links {
-    margin-top: 30px; /* Reduced margin */
+    margin-top: 30px;
+    /* Reduced margin */
 }
 
 .social-links h3 {
-    font-size: 20px; /* Reduced font size */
-    margin-bottom: 15px; /* Reduced margin */
-    color: var(--link-color); /* Changed to blue */
+    font-size: 20px;
+    /* Reduced font size */
+    margin-bottom: 15px;
+    /* Reduced margin */
+    color: var(--link-color);
+    /* Changed to blue */
 }
 
 .social-links a {
     color: var(--link-color);
-    margin: 0 10px; /* Uniform margin for spacing */
-    font-size: 24px; /* Slightly smaller font size */
+    margin: 0 10px;
+    /* Uniform margin for spacing */
+    font-size: 24px;
+    /* Slightly smaller font size */
     transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: var(--link-hover-color); /* Changed to blue */
+    color: var(--link-hover-color);
+    /* Changed to blue */
 }
 
 /* Footer Section */
@@ -1049,7 +1234,7 @@ textarea {
 
 .footer-logo h2 a:hover {
     color: var(--highlight-hover-color)
-    /* Neon pink on hover */
+        /* Neon pink on hover */
 }
 
 .footer-links ul {
