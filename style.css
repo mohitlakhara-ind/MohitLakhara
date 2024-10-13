@@ -1277,7 +1277,7 @@ textarea {
 .footer-bottom {
     text-align: center;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--error-color);
 }
 
 .footer-bottom p {
