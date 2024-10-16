@@ -1,3 +1,5 @@
+/* The above code is a CSS stylesheet that defines styles for a website. Here is a summary of what the
+code is doing: */
 /* Custom Styles */
 :root {
     --p-font: "Merriweather", serif;
@@ -6,67 +8,69 @@
     --h-optical-sizing: auto;
     --h-font-weight: 400;
 }
-
-/* High-Contrast Light Mode */
+/* Updated High-Contrast Light Mode */
 .light-mode {
-    --primary-color: #FF4500;
-    /* OrangeRed */
-    --secondary-color: #1C1C1C;
-    /* Very Dark Gray */
-    --tertiary-color: #000080;
-    /* Navy Blue */
-    --background-color: #FFFFFF;
-    /* Pure White */
-    --secondary-background-color: #F5F5F5;
-    /* Very Light Gray */
-    --highlight-color: #008000;
-    /* Green */
-    --highlight-hover-color: #006400;
-    /* Dark Green */
-    --link-color: #0000FF;
-    /* Blue */
-    --link-hover-color: #00008B;
-    /* Dark Blue */
-    --border-color: #000000;
-    /* Black */
-    --error-color: #FF0000;
-    /* Bright Red */
-    --warning-color: #FFD700;
-    /* Bright Yellow */
-    --success-color: #32CD32;
-    /* Bright Green */
-}
-
-/* High-Contrast Dark Mode */
-body.dark {
-    --primary-color: #00FF00;
-    /* Lime Green */
-    --secondary-color: #FFFFFF;
-    /* White */
-    --tertiary-color: #FF00FF;
-    /* Magenta */
-    --background-color: #000000;
-    /* Pure Black */
-    --secondary-background-color: #1A1A1A;
+    --primary-color: #FF6347;
+    /* Tomato Red */
+    --secondary-color: #333333;
     /* Dark Gray */
-    --highlight-color: #FFA500;
-    /* Bright Orange */
-    --highlight-hover-color: #FF8C00;
-    /* Dark Orange */
-    --link-color: #00FFFF;
-    /* Cyan */
-    --link-hover-color: #00CED1;
-    /* Dark Turquoise */
-    --border-color: #FFFFFF;
-    /* White */
-    --error-color: #FF0000;
-    /* Bright Red */
-    --warning-color: #FFD700;
-    /* Bright Yellow */
-    --success-color: #32CD32;
-    /* Bright Green */
+    --tertiary-color: #4B0082;
+    /* Indigo */
+    --background-color: #FAFAFA;
+    /* Very Light Gray */
+    --secondary-background-color: #F0F0F0;
+    /* Subtle Gray */
+    --highlight-color: #32CD32;
+    /* Lime Green */
+    --highlight-hover-color: #228B22;
+    /* Forest Green */
+    --link-color: #1E90FF;
+    /* Dodger Blue */
+    --link-hover-color: #4682B4;
+    /* Steel Blue */
+    --border-color: #CCCCCC;
+    /* Light Gray */
+    --error-color: #DC143C;
+    /* Crimson */
+    --warning-color: #FFA500;
+    /* Orange */
+    --success-color: #28A745;
+    /* Medium Green */
 }
 
+/* Updated High-Contrast Dark Mode */
+body.dark {
+    --primary-color: #1ABC9C;
+    /* Turquoise */
+    --secondary-color: #ECF0F1;
+    /* Light Gray */
+    --tertiary-color: #9B59B6;
+    /* Violet */
+    --background-color: #1A1A1A;
+    /* Dark Black */
+    --secondary-background-color: #333333;
+    /* Darker Gray */
+    --highlight-color: #F39C12;
+    /* Orange */
+    --highlight-hover-color: #E67E22;
+    /* Pumpkin Orange */
+    --link-color: #3498DB;
+    /* Sky Blue */
+    --link-hover-color: #2980B9;
+    /* Deep Blue */
+    --border-color: #666666;
+    /* Dark Gray Border */
+    --error-color: #E74C3C;
+    /* Bright Red */
+    --warning-color: #F39C12;
+    /* Golden Orange */
+    --success-color: #2ECC71;
+    /* Emerald Green */
+}
+
+body{
+    background-color: var(--background-color);
+}
 
 * {
     box-sizing: border-box;
@@ -213,7 +217,13 @@ header {
 
 
 }
-
+.canvas-off{
+    background-color: var(--highlight-hover-color);
+    scroll-behavior: smooth;
+    border-bottom-left-radius: 10%;
+    /* border-top-left-radius: 10%; */
+    /* border-bottom-right-radius: 10%; */
+}
 
 .nav-link {
     color: var(--link-color);
@@ -259,7 +269,8 @@ header {
     font-size: 20px;
     margin: 20px 0;
     animation: fadeIn 2s ease-in-out;
-    font-size: 3em;
+    font-size:4vw;
+
 }
 
 .hero-section h1 {
@@ -275,6 +286,7 @@ header {
     font-weight: bold;
     animation: fadeIn 2s ease-in-out 2s;
     color: transparent;
+    font-size: 7.5vw;
     -webkit-text-stroke: 2px var(--primary-color);
 }
 
@@ -282,11 +294,12 @@ header {
     font-size: 20px;
     margin-top: 50px;
     display: inline-block;
+    font-size: 1.5vw;
     animation: fadeIn 2s ease-in-out 3s;
 }
 
 .hero-section .explore i {
-    font-size: 30px;
+    font-size:1.5vw;
     display: block;
     margin-top: 10px;
 }
@@ -1099,6 +1112,7 @@ h3 {
     /* Reduced padding */
     text-align: center;
     height: 75vh;
+    min-height: fit-content;
 
 }
 
@@ -1210,31 +1224,26 @@ textarea {
     color: var(--link-hover-color);
     /* Changed to blue */
 }
-
 /* Footer Section */
 .footer-section {
-    background-color: var(--background-color);
-    /* Dark background */
+    background-color: var(--secondary-background-color); /* Subtle Gray */
     color: var(--link-color);
-    /* White text color for contrast */
-    padding: 40px 0;
+    padding: 40px 20px;
+    text-align: center;
 }
+
 
 .footer-logo h2 a {
     color: var(--highlight-color);
-    /* Neon green color for logo */
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
     font-size: 1.8rem;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease-in-out;
 }
 
-
-
 .footer-logo h2 a:hover {
-    color: var(--highlight-hover-color)
-        /* Neon pink on hover */
+    color: var(--highlight-hover-color);
 }
 
 .footer-links ul {
@@ -1242,67 +1251,67 @@ textarea {
     padding: 0;
     display: flex;
     justify-content: center;
-}
-
-.footer-links ul li {
-    margin: 0 15px;
+    flex-wrap: wrap; /* Flex-wrap for better alignment on small screens */
+    gap: 15px;
+    margin: 20px 0;
 }
 
 .footer-links ul li a {
     color: var(--warning-color);
-    /* Neon link color */
     text-decoration: none;
     font-size: 1rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease-in-out;
 }
 
 .footer-links ul li a:hover {
-    color: var(--link-color);
-    /* Neon pink on hover */
+    color: var(--link-hover-color);
+}
+
+.footer-social {
+    margin: 20px 0;
 }
 
 .footer-social a {
     color: var(--link-color);
-    /* Neon green social icons */
     font-size: 1.5rem;
-    margin: 0 10px;
-    transition: color 0.3s ease;
+    margin: 0 15px;
+    transition: color 0.3s ease-in-out;
 }
 
 .footer-social a:hover {
     color: var(--link-hover-color);
-    /* Neon pink on hover */
 }
 
 .footer-bottom {
-    text-align: center;
     padding-top: 20px;
     border-top: 1px solid var(--error-color);
 }
 
 .footer-bottom p {
-    color: var(--highlight-hover-color);
-    /* Light grey for footer text */
+    color: var(--error-color);
     font-size: 0.9rem;
+    margin: 0;
+    transition: color 0.3s ease-in-out;
 }
 
 .footer-bottom p:hover {
     color: var(--highlight-color);
-    /* Neon pink on hover */
+    /* background-color: var(--error-color); */
 }
 
 /* Responsive Footer */
 @media (max-width: 768px) {
-    .footer-links ul {
-        flex-direction: column;
-        align-items: center;
+    .footer-section {
+        padding: 30px 10px;
     }
 
-    .footer-links ul li {
-        margin-bottom: 10px;
+    .footer-links ul {
+        flex-direction: column;
+        gap: 10px; /* Reduced gap for smaller screens */
     }
 
     .footer-social {
-        margin-top: 20px;
+        margin-top: 15px;
     }
 }
+

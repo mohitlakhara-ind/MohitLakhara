@@ -1,3 +1,12 @@
+/**
+ * The JavaScript code snippet includes functionality for interactive hero section tilt effect,
+ * navigation section switching, dark mode toggle, social panel interaction, and smooth scrolling for
+ * navigation links.
+ * @param index - The `index` parameter in the provided code refers to the index of a section within
+ * the `sections` NodeList. This index is used to determine which section should be displayed or
+ * targeted based on user interaction, such as clicking on a navigation link or using arrow keys for
+ * navigation. The `showSection`
+ */
 
 const heroSection = document.querySelector('.hero-section');
 const innerElements = heroSection.querySelectorAll('p, h1, h2, .explore, .triangle');
